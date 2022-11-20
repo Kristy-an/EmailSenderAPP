@@ -1,8 +1,12 @@
 const express = require('express');
-const app = express();  // app object :a running express app
+const app = express();         // app object :a running express app
 
-app.get('/',(req, res) => {
-  res.send({hi:'there' });
+app.get('/',(req, res) => {    //request, response
+  res.send({hi: 'there' });
 })
 
-app.listen(3000);
+const PORT = process.env.PORT || 5000;
+const host = '0.0.0.0';
+app.listen(PORT,host);
+
+// localhost:3000
