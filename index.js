@@ -1,12 +1,14 @@
+require('dotenv').config();
+const dotenv=require('dotenv');
 const express = require('express');
+require('./services/passport');
+
 const app = express();         // app object :a running express app
 
-app.get('/',(req, res) => {    //request, response
-  res.send({hi: 'stq, this is your father.' });
-})
+require('./routes/authRoutes')(app);
 
-const PORT = process.env.PORT || 5000;
-const host = '0.0.0.0';
-app.listen(PORT,host);
 
-// localhost:3000
+const PORT = process.env.PORT || 3000;
+app.listen(PORT);
+
+// localhost:3000m
